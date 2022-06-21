@@ -1,5 +1,5 @@
-import { IAppState, incrementCounter, decrementCounter } from './store/app.state';
-import { Component, Input, OnInit } from '@angular/core';
+import { IAppState, incrementCounter, decrementCounter, inputCounter } from './store/app.state';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 
@@ -11,6 +11,9 @@ import { map } from 'rxjs';
 export class AppComponent {
 
   title = 'ngrx-tutorial-hype-it';
+
+  @ViewChild('counterInput')
+  counterInput: ElementRef = { nativeElement: {} };
 
   constructor(private store: Store<{ app: IAppState }>) {}
 
@@ -28,6 +31,12 @@ export class AppComponent {
 
   decrementCounter() {
     this.store.dispatch(decrementCounter());
+  }
+
+  inputCounter(counterValue: string) {
+    let counterToNumber = Number(counterValue);
+
+    this.store.dispatch(inputCounter({ payload: counterToNumber }));
   }
 
 }

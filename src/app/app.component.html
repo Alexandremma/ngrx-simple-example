@@ -3,3 +3,11 @@
 <button (click)="incrementCounter()">Increment</button>
 
 <app-display-counter></app-display-counter>
+
+<br>
+
+<div class="counter-container">
+    <label for="">Counter</label>
+    <input #counterInput type="number">
+    <button (click)="inputCounter(counterInput.value)">Enviar</button>
+</div>
