@@ -1,0 +1,20 @@
+.films-container {
+    margin: 10px 0;
+}
+
+.list-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+}
+
+.film-card {
+    padding: 12px 4px;
+}
+
+.film-item {
+    width: 400px;
+}
